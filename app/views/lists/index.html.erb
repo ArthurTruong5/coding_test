@@ -11,7 +11,11 @@
 
 <%= link_to 'New List', new_list_path, :class => 'button is-primary' %>
 
-<%= link_to 'Import CSV', new_list_path, :class => 'button is-primary' %>
+<!-- TODO: refactor the path -->
+<%= form_tag import_lists_path, :class => 'button is-primary', multipart: true do %>
+<%= file_field_tag :file %>
+<%= submit_tag 'Upload CSV' %>
+<% end %>
 
 <div class="demo">
 
@@ -19,10 +23,10 @@
   <table class="table is-responsive is-fullwidth">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Date</th>
-        <th>Number</th>
-        <th>Description</th>
+        <th><%= link_to 'Name', :sort => 'name' %></th>
+        <th><%= link_to 'Date', :sort => 'price' %></th>
+        <th><%= link_to 'Number', :sort => 'number' %></th>
+        <th><%= link_to 'Description', :sort => 'description' %></th>
         <th colspan="3"></th>
       </tr>
     </thead>
