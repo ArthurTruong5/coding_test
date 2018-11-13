@@ -1,0 +1,35 @@
+<%= hidden_field_tag :sort, params[:sort] %>
+<%= hidden_field_tag :direction, params[:direction] %>
+
+<div class="demo">
+  <br>
+  <table class="table is-responsive is-fullwidth">
+    <h1>Click header to sort</h1>
+    <thead>
+      <tr>
+        <th><%= sort_link 'Name' %></th>
+        <th><%= sort_link 'Date' %></th>
+        <th><%= sort_link 'Number' %></th>
+        <th><%= sort_link 'Description' %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+</div>
+
+<% @lists.each do |list| %>
+<tbody>
+  <tr>
+    <td><%= list.name %></td>
+    <td><%= list.date %></td>
+    <td><%= list.number %></td>
+    <td><%= list.description %></td>
+    <td><%= link_to 'Show', list %></td>
+    <td><%= link_to 'Edit', edit_list_path(list) %></td>
+    <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+
+</tbody>
+<% end %>
+</table>
+
+<%= will_paginate @lists %>

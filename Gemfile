@@ -11,6 +11,10 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem "bulma-rails", "~> 0.7.2"
+gem "font-awesome-rails"
+gem 'jquery-rails'
+gem 'pg_search'
+gem 'will_paginate', '~> 3.1.0'
 
 
 gem 'bootsnap', '>= 1.1.0', require: false
