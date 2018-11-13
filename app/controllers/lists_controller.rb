@@ -1,11 +1,14 @@
 class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /lists
   # GET /lists.json
   def index
-    @lists = List.all
+    # TODO: refactor as .order is prone to SQL injections
+  @lists = List.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
   end
+
 
   # GET /lists/1
   # GET /lists/1.json
@@ -61,10 +64,15 @@ class ListsController < ApplicationController
     end
   end
 
+
   def import
-    List.import(params[:file])
-    redirect_to lists_path, notice: "CSV added successfully"
+  begin
+    Product.import(params[:file])
+    redirect_to lists_path, notice: "Products imported."
+  rescue
+    redirect_to lists_path, alert: "Invalid CSV file format."
   end
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -75,5 +83,17 @@ class ListsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
       params.require(:list).permit(:name, :date, :number, :description)
+    end
+
+    def sortable_columns
+    ["Name", "Date", "Number", "Description"]
+    end
+
+    def sort_column
+      sortable_columns.include?(params[:sort]) ? params[:sort] : "name"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 end
