@@ -67,8 +67,8 @@ class ListsController < ApplicationController
 
   def import
   begin
-    Product.import(params[:file])
-    redirect_to lists_path, notice: "Products imported."
+    List.import(params[:file])
+    redirect_to lists_path, notice: "CSV sucessfully imported."
   rescue
     redirect_to lists_path, alert: "Invalid CSV file format."
   end
