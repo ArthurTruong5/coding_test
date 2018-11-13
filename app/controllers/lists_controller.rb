@@ -6,7 +6,7 @@ class ListsController < ApplicationController
   # GET /lists.json
   def index
     # TODO: refactor as .order is prone to SQL injections
-  @lists = List.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
+  @lists = List.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
   end
 
 
@@ -64,10 +64,15 @@ class ListsController < ApplicationController
     end
   end
 
+
   def import
-    List.import(params[:file])
-    redirect_to lists_path, notice: "CSV added successfully"
+  begin
+    Product.import(params[:file])
+    redirect_to lists_path, notice: "Products imported."
+  rescue
+    redirect_to lists_path, alert: "Invalid CSV file format."
   end
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.

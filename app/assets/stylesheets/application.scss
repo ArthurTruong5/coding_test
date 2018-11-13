@@ -17,3 +17,13 @@
 
 @import "bulma";
 @import "font-awesome";
+
+a {
+  color: #cc1414;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#darken {
+  background-color: lemonchiffon;
+}

@@ -1,28 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-
-<section class="hero is-primary">
+<section class="hero is-warning">
   <div class="hero-body">
-      <p class="subtitle">Company List</p>
+    <div class="container">
+      <h1 class="title">
+        Company List
+      </h1>
+    </div>
   </div>
 </section>
 
 <br>
 
-<%= link_to 'New List', new_list_path, :class => 'button is-primary', :id =>"my-table"%>
+<%= link_to 'New List', new_list_path, :class => 'button is-warning', :id =>"my-table"%>
+
 
 <!-- TODO: refactor the path -->
-<%= form_tag import_lists_path, :class => 'button is-primary', multipart: true do %>
+<%= form_tag import_lists_path, :class => 'button is-warning', multipart: true do %>
 <%= file_field_tag :file %>
 <%= submit_tag 'Upload CSV' %>
 <% end %>
 
 <br>
 
-<%= form_tag lists_path, :method => 'get', :id => "lists_search" do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
+
   <div id="lists"><%= render 'lists' %></div>
-<% end %>
