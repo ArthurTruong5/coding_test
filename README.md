@@ -21,6 +21,10 @@ rake db:create
 ```bash
 rake db:migrate
 ```
+# Run Testing 
+```bash
+bundle exec rake spec
+```
 
 # Features of submission
 
