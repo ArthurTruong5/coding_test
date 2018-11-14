@@ -13,14 +13,13 @@
         <th colspan="2"></th>
       </tr>
     </thead>
-</div>
-
+  </div>
 
   <div class="field is-grouped">
-  <%= form_tag(lists_path, :method => "get", remote: true, id: "lists_search") do %>
-  <p class="control">
-    <%= text_field_tag :search, params[:search], placeholder: "Search for name", class: 'input light-table-filter', data: { :dtable => "order-table" } %>
-  </p>
+    <%= form_tag(lists_path, :method => "get", remote: true, id: "lists_search") do %>
+    <p class="control">
+      <%= text_field_tag :search, params[:search], placeholder: "Search for name", class: 'input' %>
+    </p>
     <span class="input-group-btn">
       <%= submit_tag "Search", class: 'button is-warning', remote: true %>
     </span>
@@ -30,16 +29,16 @@
 <h2>Click red header below to sort</h2>
 
 <% @lists.each do |list| %>
-<tbody class="order-table table">
-  <tr>
-    <td id="darken"><%= link_to list.name, new_list_path %></td>
-    <td><%= list.date %></td>
-    <td><%= list.number %></td>
-    <td><%= list.description %></td>
-    <td><%= link_to 'Edit', edit_list_path(list) %></td>
-    <td><%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td id="darken"><%= link_to list.name, new_list_path %></td>
+      <td><%= list.date %></td>
+      <td><%= list.number %></td>
+      <td><%= list.description %></td>
+      <td><%= link_to 'Edit', edit_list_path(list) %></td>
+      <td><%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
 
-</tbody>
+  </tbody>
 <% end %>
 </table>
