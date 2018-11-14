@@ -17,19 +17,20 @@
 
 
   <div class="field is-grouped">
-  <%= form_tag(lists_path, :method => "get", id: "lists_search") do %>
+  <%= form_tag(lists_path, :method => "get", remote: true, id: "lists_search") do %>
   <p class="control">
-    <%= text_field_tag :search, params[:search], placeholder: "Search for name", class: 'input' %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search for name", class: 'input light-table-filter', data: { :dtable => "order-table" } %>
   </p>
     <span class="input-group-btn">
-      <%= submit_tag "Search", class: 'button is-warning' %>
+      <%= submit_tag "Search", class: 'button is-warning', remote: true %>
     </span>
   <% end %>
 </div>
 
 <h2>Click red header below to sort</h2>
+
 <% @lists.each do |list| %>
-<tbody>
+<tbody class="order-table table">
   <tr>
     <td id="darken"><%= link_to list.name, new_list_path %></td>
     <td><%= list.date %></td>
