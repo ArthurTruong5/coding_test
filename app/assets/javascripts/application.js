@@ -21,7 +21,7 @@
 //   });
 // });
 $(function() {
-  $("#lists th a, #lists .pagination a").live("click", function() {
+  $("#lists th a, #lists ").live("click", function() {
     $.getScript(this.href);
     return false;
   });

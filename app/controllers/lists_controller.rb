@@ -5,9 +5,8 @@ class ListsController < ApplicationController
   # GET /lists
   # GET /lists.json
   def index
-    # TODO: refactor as .order is prone to SQL injections
   @lists = List.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
-  end
+end
 
 
   # GET /lists/1
