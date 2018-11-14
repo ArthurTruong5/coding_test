@@ -15,7 +15,8 @@ gem "font-awesome-rails"
 gem 'jquery-rails'
 gem 'pg_search'
 gem 'will_paginate', '~> 3.1.0'
-
+gem 'selenium-webdriver'
+gem 'geckodriver-helper'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -23,6 +24,10 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'fast_jsonapi'
+  gem 'capybara'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
 end
 
 group :development do
