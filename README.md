@@ -22,6 +22,12 @@ rake db:create
 rake db:migrate
 ```
 
+# Run testing
+
+```bash
+bundle exec rake spec
+```
+
 # Features of submission
 
 - Mobile responsiveness
