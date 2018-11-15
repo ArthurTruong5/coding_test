@@ -10,4 +10,9 @@ feature "user uploads sentia list csv", :js do
     visit 'https://sentia-coding-test.herokuapp.com'
     click_button('Upload CSV')
   end
+  scenario "fill in search bar" do
+    visit 'https://sentia-coding-test.herokuapp.com'
+    fill_in('search', :with => 'David')
+    click_button('Search')
+  end
 end
