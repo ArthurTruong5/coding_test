@@ -5,7 +5,7 @@ class ListsController < ApplicationController
   # GET /lists
   # GET /lists.json
   def index
-    @lists = List.search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(page: params[:page])
+    @lists = List.search(params[:search]).order(sort_column + ' ' + sort_direction)
 end
 
   # GET /lists/1
