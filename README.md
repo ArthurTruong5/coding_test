@@ -26,12 +26,6 @@ rake db:migrate
 bundle exec rake spec
 ```
 
-# Run testing
-
-```bash
-bundle exec rake spec
-```
-
 # Features of submission
 
 - Mobile responsiveness
