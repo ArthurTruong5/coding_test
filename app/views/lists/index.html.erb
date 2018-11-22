@@ -19,7 +19,7 @@
 <%= submit_tag 'Upload CSV', data: { "data-test-id" => "sentia-csv-import"} %>
 <% end %>
 
-<%= link_to "Remove All", list_remove_all_path(@lists), :method => :get, :class => 'button is-warning' %>
+<%= link_to "Remove All", list_remove_all_path(@lists), :method => :get, :class => 'button is-warning', :remote => true %>
 
 <br>
 
