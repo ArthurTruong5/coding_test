@@ -19,6 +19,8 @@
 <%= submit_tag 'Upload CSV', data: { "data-test-id" => "sentia-csv-import"} %>
 <% end %>
 
+<%= link_to "Remove All", list_remove_all_path(@lists), :method => :get, :class => 'button is-warning' %>
+
 <br>
 
 <div id="lists"><%= render 'lists' %></div>

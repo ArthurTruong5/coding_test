@@ -12,6 +12,11 @@ end
   # GET /lists/1.json
   def show; end
 
+  def remove_all
+    List.destroy_all
+    redirect_to lists_path, notice: "You have removed all results!"
+  end
+
   # GET /lists/new
   def new
     @list = List.new
