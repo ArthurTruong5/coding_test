@@ -15,4 +15,8 @@ feature "user uploads sentia list csv", :js do
     fill_in('search', :with => 'David')
     click_button('Search')
   end
+  scenario "delete all" do
+    visit 'https://sentia-coding-test.herokuapp.com'
+    click_link('Remove All')
+  end
 end
