@@ -35,3 +35,28 @@ $(function() {
     return false;
   });
 });
+
+$(document).ready(function() {
+  // hide spinner
+  $("#spinner").hide();
+
+  // show spinner on AJAX start
+  $(document).ajaxStart(function() {
+    $("#spinner").show();
+  });
+
+  // hide spinner on AJAX stop
+  $(document).ajaxStop(function() {
+    $("#spinner").hide();
+  });
+});
+
+// this would be for turbolinks initailiziation
+$(document).on("page:fetch", function() {
+  $("#spinner").show();
+});
+
+// beacuse page:receive does not seem to work.
+$(document).on("page:change", function() {
+  $("#spinner").hide();
+});

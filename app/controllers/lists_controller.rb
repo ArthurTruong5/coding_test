@@ -15,7 +15,7 @@ end
   def remove_all
     List.destroy_all
     redirect_to lists_path, notice: "You have removed all lists!"
-  end
+end
 
   # GET /lists/new
   def new
