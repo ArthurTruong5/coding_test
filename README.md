@@ -1,6 +1,6 @@
 # Coding Challenge
 
-Unfortunately I didn't make it to the next round with this test. The feedback I got was I needed to work on design principles but wasn't told what specifically. I added unit testing and continuous integration even though it wasn't required. This was for a junior position and I was told how I coded wasn't junior enough. Anyone out there in the community who can help me with what sort of design principles I needed to follow to make it through the next round, please enlighten me by doing a pull request.
+I added unit testing and continuous integration even though it wasn't required.
 
 View live @ [Live Site](https://sentia-coding-test.herokuapp.com)
 
