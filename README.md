@@ -1,6 +1,6 @@
 # Coding Challenge
 
-I added unit testing and continuous integration even though it wasn't required.
+I added continuous integration, unit & application testing.
 
 View live @ [Live Site](https://sentia-coding-test.herokuapp.com)
 
